@@ -31,8 +31,7 @@ Modifier
 npm start
 Project Structure
 bash
-Copier
-Modifier
+``
 Api/
 ├── src/
 │   ├── db/
@@ -59,6 +58,7 @@ PUT /pokemons/:id: Update a Pokémon
 DELETE /pokemons/:id: Delete a Pokémon
 Tests
 sh
+``
 Copier
 Modifier
 # Run the tests
