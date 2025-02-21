@@ -4,7 +4,7 @@ This API allows you to manage a Pokémon database using CRUD operations (Create,
 
 Prerequisites
 
-Node.js
+````Node.js````
 
 npm or yarn
 
@@ -13,19 +13,19 @@ Sequelize (ORM for managing the database)
 Installation
 
 Clone the repository and install the dependencies.
-
+````
 # Clone the repository
 git clone https://github.com/Blackholeisoka/Api.git
 cd Api
 
 # Install dependencies
 npm install
-
+````
 Configuration
 
-Create a .env file at the root of the project and add the necessary environment variables:
+Create a ````.env file```` at the root of the project and add the necessary environment variables:
 
-PORT=3000
+````PORT=3000````
 
 Starting the Server 
 
@@ -33,11 +33,11 @@ To start the server, run the following command:
 
 # Start the server
 npm start
-
+````
 The server will be available at http://localhost:3000.
-
+````
 Project Structure
-
+````
 Api/
 ├── src/
 │   ├── db/
@@ -55,11 +55,11 @@ Api/
 ├── package.json             # Dependencies and scripts
 ├── .env                     # Environment variables
 ├── .gitignore               # Files to ignore by Git
-
+````
 Endpoints
 
 Pokémon Routes
-
+````
 POST /pokemons: Create a new Pokémon
 
 GET /pokemons: Retrieve all Pokémon
@@ -69,13 +69,13 @@ GET /pokemons/:id: Retrieve a Pokémon by ID
 PUT /pokemons/:id: Update a Pokémon by ID
 
 DELETE /pokemons/:id: Delete a Pokémon by ID
-
+````
 Tests
 
 To run the tests, use the following command:
 
 # Run the tests
-npm test
+````npm test````
 
 Deployment
 
@@ -89,7 +89,7 @@ Contributions are welcome! Please fork the repository, create a feature branch, 
 
 License
 
-This project is licensed under the MIT License.
+This project is licensed under the ````MIT License.````
 
 This updated README now provides a complete overview of the project, from installation to usage and deployment.
 Deployment on a cloud platform (e.g., Heroku, Vercel, Render)
@@ -98,4 +98,4 @@ Contribution
 Contributions are welcome! Please follow the contribution guidelines and submit a pull request with your improvements.
 
 License
-MIT
+````MIT````
