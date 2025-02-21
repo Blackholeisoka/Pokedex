@@ -22,6 +22,7 @@ require('./src/routes/findPokemonsByPk.js')(app);
 require('./src/routes/createPokemon.js')(app);
 require('./src/routes/updatePokemon.js')(app);
 require('./src/routes/deletePokemon.js')(app);
+require('./src/routes/login.js')(app);
 
 app.use(({res}) => {
     const message = 'Impossible de trouver la ressource demandée ! Vous pouvez essayer une autre URL.'

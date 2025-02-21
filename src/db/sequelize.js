@@ -1,6 +1,8 @@
 const {Sequelize, DataTypes} = require('sequelize');
 let pokemons = require('./mock-pokemon.js');
 const PokemonModel = require('../models/pokemon.js');
+const User = require('./src/models/user.js');
+const bcrypt = require('bcrypt');
 require('dotenv').config()
 
 // Base de données
@@ -25,6 +27,7 @@ sequelize.authenticate()
 
 // Models 
 const Pokemon = PokemonModel(sequelize, DataTypes);
+const User = UserModel(sequelize, DataTypes);
 
 // Syncronisation avec la base de données
 const initDb = async () =>{
@@ -42,9 +45,16 @@ const initDb = async () =>{
             }).then(name => console.log(name.toJSON()));
         });
         
+        bcrypt.hash('pikachu', 10)
+            .then(hash => 
+                User.create({
+                    username: 'pikachu',
+                    password: hash,
+                }).then(user => console.log(user.toJSON()))
+        )
     });
 }
 
     module.exports = {
-        initDb, Pokemon
+        initDb, Pokemon, User
     }

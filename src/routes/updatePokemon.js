@@ -1,6 +1,7 @@
 const {Pokemon} = require('../db/sequelize');
+const {auth} = require('../auth/Auth');
 
-module.exports = (app) =>{
+module.exports = auth, (app) =>{
     app.put('/api/pokemon/:id', (req, res) =>{
         const id = req.params.id;
         Pokemon.update(req.body, {
