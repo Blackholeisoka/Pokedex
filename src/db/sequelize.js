@@ -1,11 +1,11 @@
-const {Sequelize, DataTypes} = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 let pokemons = require('./mock-pokemon.js');
 const PokemonModel = require('../models/pokemon.js');
 const UserModel = require('../models/user.js');
 const bcrypt = require('bcrypt');
 require('dotenv').config()
 
-// Base de données
+// Database
 const sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
@@ -16,25 +16,25 @@ const sequelize = new Sequelize(
         dialectOptions: {
             timezone: 'Etc/GMT-2'
         },
-        logging : false
+        logging: false
     }
 )
 
-// Connection à la base de données
+// Connect to the database
 sequelize.authenticate()
-    .then(_ => console.log('Connection à la base de données avec succées'))
-    .catch(error => console.log('Impossible de ce connecter à la base de données', error))
+    .then(_ => console.log('Successfully connected to the database'))
+    .catch(error => console.log('Unable to connect to the database', error))
 
-// Models 
+// Models
 const Pokemon = PokemonModel(sequelize, DataTypes);
 const User = UserModel(sequelize, DataTypes);
 
-// Syncronisation avec la base de données
-const initDb = async () =>{
+// Synchronize with the database
+const initDb = async () => {
 
     return sequelize.sync({ force: true })
     .then(() => {
-        console.log('La base de données pokedex a bien été synchronisée');
+        console.log('The Pokedex database has been successfully synchronized');
         pokemons.map((p) =>{
             Pokemon.create({
                 name: p.name,
@@ -55,6 +55,6 @@ const initDb = async () =>{
     });
 }
 
-    module.exports = {
-        initDb, Pokemon, User
-    }
+module.exports = {
+    initDb, Pokemon, User
+}

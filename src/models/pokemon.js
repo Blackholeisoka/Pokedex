@@ -1,4 +1,4 @@
-const validTypes = ['Plante', 'Poison', 'Feu', 'Eau', 'Insecte', 'Vol', 'Normal', 'Electrik', 'Fée']
+const validTypes = ['Grass', 'Poison', 'Fire', 'Water', 'Bug', 'Flying', 'Normal', 'Electric', 'Fairy'];
 
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define('Pokemon', {
@@ -11,55 +11,55 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       unique: {
-        msg: 'Le nom est déjà pris.'
+        msg: 'The name is already taken.'
       },
       validate: {
         len: {
           args: [1, 25],
-          msg: 'Le nom doit contenir entre 1 et 25 caractères.'
+          msg: 'The name must be between 1 and 25 characters long.'
         },
-        notEmpty: { msg: 'Le nom ne peut pas être vide.' },
-        notNull: { msg: 'Le nom est une propriété requise.'}
+        notEmpty: { msg: 'The name cannot be empty.' },
+        notNull: { msg: 'The name is a required property.'}
       }
     },
     hp: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        isInt: { msg: 'Utilisez uniquement des nombres entiers pour les points de vie.' },
+        isInt: { msg: 'Only integer values are allowed for hit points.' },
         min: {
           args: [0],
-          msg: 'Les points de vie doivent être supérieurs ou égales à 0.'
+          msg: 'Hit points must be greater than or equal to 0.'
         },
         max: {
           args: [999],
-          msg: 'Les points de vie doivent être inférieures ou égales à 999.'
+          msg: 'Hit points must be less than or equal to 999.'
         },
-        notNull: { msg: 'Les points de vie sont une propriété requise.'}
+        notNull: { msg: 'Hit points are a required property.'}
       }
     },
     cp: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        isInt: { msg: 'Utilisez uniquement des nombres entiers pour les points de dégâts.' },
+        isInt: { msg: 'Only integer values are allowed for damage points.' },
         min: {
           args: [0],
-          msg: 'Les points de dégâts doivent être supérieurs ou égales à 0.'
+          msg: 'Damage points must be greater than or equal to 0.'
         },
         max: {
           args: [99],
-          msg: 'Les points de dégâts doivent être inférieures ou égales à 99.'
+          msg: 'Damage points must be less than or equal to 99.'
         },
-        notNull: { msg: 'Les points de dégâts sont une propriété requise.'}
+        notNull: { msg: 'Damage points are a required property.'}
       }
     },
     picture: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isUrl: { msg: 'Utilisez uniquement une URL valide pour l\'image.' },
-        notNull: { msg: 'L\'image est une propriété requise.'}
+        isUrl: { msg: 'Only a valid URL is allowed for the image.' },
+        notNull: { msg: 'The image is a required property.'}
       }
     },
     types: {
@@ -74,14 +74,14 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         isTypesValid(value) {
           if(!value) {
-            throw new Error('Un pokémon doit au moins avoir un type.')
+            throw new Error('A Pokémon must have at least one type.')
           }
-          if(value.split(',').length > 3) {
-            throw new Error('Un pokémon ne peux pas avoir plus de trois types.')
+          if(value.split(',').length > 3) {
+            throw new Error('A Pokémon cannot have more than three types.')
           }
           value.split(',').forEach(type => {
             if(!validTypes.includes(type)) {
-              throw new Error(`Le type d'un pokémon doit appartenir à la liste suivante : ${validTypes}`)
+              throw new Error(`A Pokémon type must belong to the following list: ${validTypes}`)
             }
           });
         }

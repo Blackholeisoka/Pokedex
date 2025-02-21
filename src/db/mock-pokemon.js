@@ -1,47 +1,47 @@
 const pokemons = [
     {
      id: 1,
-     name: "Bulbizarre",
+     name: "Bulbasaur",
      hp: 25,
      cp: 5,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
-     types: ["Plante", "Poison"],
+     types: ["Grass", "Poison"],
      created: new Date()
     },
     {
      id: 2,
-     name: "Salamèche",
+     name: "Charmander",
      hp: 28,
      cp: 6,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png",
-     types: ["Feu"],
+     types: ["Fire"],
      created: new Date()
     },
     {
      id: 3,
-     name: "Carapuce",
+     name: "Squirtle",
      hp: 21,
      cp: 4,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png",
-     types: ["Eau"],
+     types: ["Water"],
      created: new Date()
     },
     {
      id: 4,
-     name: "Aspicot",
+     name: "Caterpie",
      hp: 16,
      cp: 2,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/013.png",
-     types: ["Insecte", "Poison"],
+     types: ["Bug", "Poison"],
      created: new Date()
     },
     {
      id: 5,
-     name: "Roucool",
+     name: "Pidgey",
      hp: 30,
      cp: 7,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/016.png",
-     types: ["Normal", "Vol"],
+     types: ["Normal", "Flying"],
      created: new Date()
     },
     {
@@ -55,16 +55,16 @@ const pokemons = [
     },
     {
      id: 7,
-     name: "Piafabec",
+     name: "Spearow",
      hp: 14,
      cp: 5,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/021.png",
-     types: ["Normal", "Vol"],
+     types: ["Normal", "Flying"],
      created: new Date()
     },
     {
      id: 8,
-     name: "Abo",
+     name: "Ekans",
      hp: 16,
      cp: 4,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/023.png",
@@ -77,12 +77,12 @@ const pokemons = [
      hp: 21,
      cp: 7,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png",
-     types: ["Electrik"],
+     types: ["Electric"],
      created: new Date()
     },
     {
      id: 10,
-     name: "Sabelette",
+     name: "Sandshrew",
      hp: 19,
      cp: 3,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/027.png",
@@ -91,22 +91,22 @@ const pokemons = [
     },
     {
      id: 11,
-     name: "Mélofée",
+     name: "Jigglypuff",
      hp: 25,
      cp: 5,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/035.png",
-     types: ["Fée"],
+     types: ["Fairy"],
      created: new Date()
     },
     {
      id: 12,
-     name: "Groupix",
+     name: "Vulpix",
      hp: 17,
      cp: 8,
      picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
-     types: ["Feu"],
+     types: ["Fire"],
      created: new Date()
     }
-   ];
-     
-   module.exports = pokemons
+];
+
+module.exports = pokemons

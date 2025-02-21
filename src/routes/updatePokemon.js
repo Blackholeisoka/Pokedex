@@ -11,12 +11,12 @@ module.exports = (app) => {
     .then(_ => {
       return Pokemon.findByPk(id).then(pokemon => {
         if(pokemon === null) {
-          const message = `Le pokémon demandé n'existe pas. Réessayez avec un autre identifiant.`
+          const message = `The requested Pokémon does not exist. Please try again with another ID.`
           return res.status(404).json({ message })
         }
 
-        const message = `Le pokémon ${pokemon.name} a bien été modifié.`
-        res.json({message, data: pokemon })
+        const message = `The Pokémon ${pokemon.name} has been successfully updated.`
+        res.json({ message, data: pokemon })
       })
     })
     .catch(error => {
@@ -24,9 +24,9 @@ module.exports = (app) => {
         return res.status(400).json({ message: error.message, data: error });
       }
       if(error instanceof UniqueConstraintError) {
-        return res.status(400).json({ message: 'error.message', data: error });
+        return res.status(400).json({ message: 'The Pokémon name is already taken.', data: error });
       }
-      const message = `Le pokémon n'a pas pu être modifié. Réessayez dans quelques instants.`
+      const message = `The Pokémon could not be updated. Please try again in a few moments.`
       res.status(500).json({ message, data: error })
     })
   })

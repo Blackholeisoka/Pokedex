@@ -11,7 +11,7 @@ module.exports = (app) => {
       const limit = parseInt(req.query.limit) || 5
 
       if(name.length < 2) {
-        const message = `Le terme de recherche doit contenir au minimum 2 caractères.`
+        const message = `The search term must contain at least 2 characters.`
         return res.status(400).json({ message })        
       }
 
@@ -28,19 +28,18 @@ module.exports = (app) => {
         limit: limit
       })
       .then(({count, rows}) => {
-        const message = `Il y a ${count} qui correspondent au terme de recherche ${name}.`
+        const message = `There are ${count} Pokémon matching the search term ${name}.`
         return res.json({ message, data: rows })
       })
     } 
     else {
       Pokemon.findAll({ order: ['name'] })
       .then(pokemons => {
-        const message = 'La liste des pokémons a bien été récupéré.'
+        const message = 'The Pokémon list has been successfully retrieved.'
         res.json({ message, data: pokemons })
       })
       .catch(error => {
-        const message = `La liste des pokémons n'a pas pu être récupéré. 
-                         Réessayez dans quelques instants.`
+        const message = `The Pokémon list could not be retrieved. Please try again in a few moments.`
         res.status(500).json({ message, data: error })
       })
     }
