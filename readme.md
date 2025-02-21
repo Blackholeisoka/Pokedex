@@ -1,77 +1,73 @@
-# API REST
+REST API
+Description
+This API allows you to manage a Pokémon database with CRUD operations.
 
-## Description
-Cette API permet de gérer une base de données de Pokémons avec les opérations CRUD.
-
-## Prérequis
-- Node.js
-- npm ou yarn
-- Sequelize (ORM pour la gestion de la base de données)
-
-## Installation
-```sh
-# Cloner le dépôt
+Prerequisites
+Node.js
+npm or yarn
+Sequelize (ORM for managing the database)
+Installation
+sh
+Copier
+Modifier
+# Clone the repository
 git clone https://github.com/Blackholeisoka/Api.git
 cd Api
 
-# Installer les dépendances
+# Install dependencies
 npm install
-```
+Configuration
+Create a .env file and add the necessary environment variables:
 
-## Configuration
-Créez un fichier `.env` et ajoutez-y les variables d'environnement nécessaires :
-```
+ini
+Copier
+Modifier
 PORT=3000
-```
-
-## Démarrage
-```sh
-# Démarrer le serveur
+Starting the Server
+sh
+Copier
+Modifier
+# Start the server
 npm start
-```
-
-## Structure du projet
-```
+Project Structure
+bash
+Copier
+Modifier
 Api/
 ├── src/
 │   ├── db/
-│   │   ├── mock-pokemon.js  # Données fictives de Pokémons
-│   │   ├── sequelize.js  # Configuration de Sequelize
+│   │   ├── mock-pokemon.js  # Mock Pokémon data
+│   │   ├── sequelize.js  # Sequelize configuration
 │   ├── models/
-│   │   ├── pokemon.js  # Modèle de données des Pokémons
+│   │   ├── pokemon.js  # Pokémon data model
 │   ├── routes/
-│   │   ├── createPokemon.js  # Route pour créer un Pokémon
-│   │   ├── deletePokemon.js  # Route pour supprimer un Pokémon
-│   │   ├── findAllPokemons.js  # Route pour récupérer tous les Pokémons
-│   │   ├── findPokemonByPk.js  # Route pour trouver un Pokémon par son ID
-│   │   ├── updatePokemon.js  # Route pour mettre à jour un Pokémon
-├── index.js  # Point d'entrée principal
-├── package.json  # Dépendances et scripts
-├── .env  # Variables d'environnement
-├── .gitignore  # Fichiers à ignorer par Git
-```
-
-## Endpoints
-
-### Pokémons
-- `POST /pokemons` : Créer un nouveau Pokémon
-- `GET /pokemons` : Récupérer tous les Pokémons
-- `GET /pokemons/:id` : Récupérer un Pokémon par ID
-- `PUT /pokemons/:id` : Mettre à jour un Pokémon
-- `DELETE /pokemons/:id` : Supprimer un Pokémon
-
-## Tests
-```sh
-# Exécuter les tests
+│   │   ├── createPokemon.js  # Route to create a new Pokémon
+│   │   ├── deletePokemon.js  # Route to delete a Pokémon
+│   │   ├── findAllPokemons.js  # Route to retrieve all Pokémon
+│   │   ├── findPokemonByPk.js  # Route to find a Pokémon by ID
+│   │   ├── updatePokemon.js  # Route to update a Pokémon
+├── index.js  # Main entry point
+├── package.json  # Dependencies and scripts
+├── .env  # Environment variables
+├── .gitignore  # Files to ignore by Git
+Endpoints
+Pokémon Routes
+POST /pokemons: Create a new Pokémon
+GET /pokemons: Retrieve all Pokémon
+GET /pokemons/:id: Retrieve a Pokémon by ID
+PUT /pokemons/:id: Update a Pokémon
+DELETE /pokemons/:id: Delete a Pokémon
+Tests
+sh
+Copier
+Modifier
+# Run the tests
 npm test
-```
+Deployment
+Deployment on a cloud platform (e.g., Heroku, Vercel, Render)
+Use Docker for a containerized execution
+Contribution
+Contributions are welcome! Please follow the contribution guidelines and submit a pull request with your improvements.
 
-## Déploiement
-- Déploiement sur une plateforme cloud (ex. Heroku, Vercel, Render)
-- Utilisation de Docker pour une exécution conteneurisée
-
-## Contribution
-Les contributions sont les bienvenues. Merci de suivre les règles de contribution et de soumettre une pull request.
-
-## Licence
+License
 MIT
