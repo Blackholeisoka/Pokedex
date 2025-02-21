@@ -27,7 +27,7 @@ Create a .env file at the root of the project and add the necessary environment 
 
 PORT=3000
 
-Starting the Server
+Starting the Server 
 
 To start the server, run the following command:
 
