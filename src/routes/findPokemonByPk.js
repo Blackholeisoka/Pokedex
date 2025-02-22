@@ -3,6 +3,8 @@ const auth = require('../auth/auth')
 
 module.exports = (app) => {
   app.get('/api/pokemons/:id', auth, (req, res) => {
+
+      // SQL: ```SELECT * FROM POKEMONS WHERE ID = (?)```
     Pokemon.findByPk(req.params.id)
       .then(pokemon => {
         if(pokemon === null) {

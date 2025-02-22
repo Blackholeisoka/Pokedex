@@ -3,6 +3,8 @@ const auth = require('../auth/auth')
 
 module.exports = (app) => {
   app.delete('/api/pokemons/:id', auth, (req, res) => {
+
+      // SQL: ```DELETE FROM POKEMONS WHERE ID = (?);```
     Pokemon.findByPk(req.params.id)
       .then(pokemon => {        
         if(pokemon === null) {

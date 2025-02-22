@@ -5,7 +5,7 @@ const UserModel = require('../models/user.js');
 const bcrypt = require('bcrypt');
 require('dotenv').config()
 
-// Database
+// Database informations
 const sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
@@ -45,7 +45,7 @@ const initDb = async () => {
             }).then(name => console.log(name.toJSON()));
         });
         
-        bcrypt.hash('pikachu', 10)
+        bcrypt.hash('pikachu', 10) // encrypt password
             .then(hash => 
                 User.create({
                     username: 'pikachu',

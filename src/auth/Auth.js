@@ -1,3 +1,4 @@
+// Global imports
 const jwt = require('jsonwebtoken')
 const privateKey = require('../auth/private_key')
 
@@ -9,7 +10,7 @@ module.exports = (req, res, next) => {
     return res.status(401).json({ message })
   }
 
-  const token = authorizationHeader.split(' ')[1]
+  const token = authorizationHeader.split(' ')[1] // Get token without 'Bearer' string
   const decodedToken = jwt.verify(token, privateKey, (error, decodedToken) => {
     if (error) {
       const message = `The user is not authorized to access this resource.`

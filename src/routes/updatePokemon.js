@@ -9,6 +9,8 @@ module.exports = (app) => {
       where: { id: id }
     })
     .then(_ => {
+
+      // SQL: ```UPDATE POKEMONS SET (?) = (?) WHERE ID = (?);```
       return Pokemon.findByPk(id).then(pokemon => {
         if(pokemon === null) {
           const message = `The requested Pokémon does not exist. Please try again with another ID.`

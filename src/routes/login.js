@@ -19,7 +19,7 @@ module.exports = (app) => {
           return res.status(401).json({message})
         }
 
-        // Generate a valid JWT token for 24 hours.
+        // Generate a valid JWT token for 24 hours
         const token = jwt.sign(
           { userId: user.id },
           privateKey,

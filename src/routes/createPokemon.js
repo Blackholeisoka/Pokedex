@@ -4,6 +4,8 @@ const auth = require('../auth/auth')
 
 module.exports = (app) => {
   app.post('/api/pokemons', auth, (req, res) => {
+
+      // SQL: ```INSERT INTO POKEMONS (name, hp, cp, picture, types) VALUES (?, ?, ?, ?, ?)```
     Pokemon.create(req.body)
       .then(pokemon => {
         const message = `The Pokémon ${req.body.name} has been successfully created.`

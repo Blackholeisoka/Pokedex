@@ -1,4 +1,6 @@
 const pokemons = [
+
+    // Data Object of pokemons
     {
      id: 1,
      name: "Bulbasaur",

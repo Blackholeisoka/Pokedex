@@ -1,6 +1,8 @@
 const validTypes = ['Grass', 'Poison', 'Fire', 'Water', 'Bug', 'Flying', 'Normal', 'Electric', 'Fairy'];
 
 module.exports = (sequelize, DataTypes) => {
+
+  // Defined database 'pokemon' structure
   return sequelize.define('Pokemon', {
     id: {
       type: DataTypes.INTEGER,

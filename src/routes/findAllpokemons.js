@@ -15,6 +15,7 @@ module.exports = (app) => {
         return res.status(400).json({ message })        
       }
 
+      // SQL: ```SELECT * FROM POKEMONS LIMIT (5)```
       return Pokemon.findAndCountAll({ 
         where: { 
           name: {
@@ -24,8 +25,8 @@ module.exports = (app) => {
             }
           }
         },
-        order: ['name'],
-        limit: limit
+        order: ['name'], // Alphabetic
+        limit: limit // 5
       })
       .then(({count, rows}) => {
         const message = `There are ${count} Pokémon matching the search term ${name}.`
