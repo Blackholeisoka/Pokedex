@@ -1,14 +1,18 @@
+// Global imports
 import { useEffect, useState } from "react";
 import "./style.css";
 
 const App = () => {
-  const [pokemons, setPokemons] = useState([]);
-  const [suggestions, setSuggestions] = useState([]);
-  const [token, setToken] = useState("");
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [pokemonId, setPokemonId] = useState(null);
-  const [id, setId] = useState(0);
 
+  // UseState
+  const [pokemons, setPokemons] = useState([]); // Pokemons list data fetched from the API
+  const [suggestions, setSuggestions] = useState([]); // filtered Pokémon suggestions autocompletion of <li>
+  const [token, setToken] = useState(""); // Jwt token value after login
+  const [showSuggestions, setShowSuggestions] = useState(false); // Display / visibility of autocompletion
+  const [pokemonId, setPokemonId] = useState(null); //selected Pokémon (after search by ID)
+  const [id, setId] = useState(0); // For personal id pokemon request
+
+  // Login / Jwt
   useEffect(() => {
     fetch("http://localhost:3000/api/login", {
       method: "POST",
@@ -27,10 +31,11 @@ const App = () => {
       .catch((error) => console.error("Error during login:", error));
   }, []);
 
+  // Get all pokemons
   const fetchPokemonList = (token) => {
     fetch("http://localhost:3000/api/pokemons", {
       method: "GET",
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` } // Token validation
     })
       .then((res) => res.json())
       .then((data) => {
@@ -39,12 +44,13 @@ const App = () => {
       .catch((error) => console.error("Error fetching Pokémon data:", error));
   };
 
+  // Get all pokemons for <li> autocompletion
   const handleInput = (e) => {
     const input = e.target.value.toLowerCase();
     if (token && input) {
       fetch("http://localhost:3000/api/pokemons", {
         method: 'GET',
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` } // Token validation
       })
       .then((res) => res.json())
       .then((data) => {
@@ -60,13 +66,15 @@ const App = () => {
     }
   };
 
+  // Add suggestion of pokemons name in input
   const handleListClick = (e, n) => {
     e.target.closest("form").querySelector("input").value = n.name;
     setSuggestions([]);
     setShowSuggestions(false);
     setId(n.id);
   };
-
+  
+  // Search pokemon by id
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!id) {
@@ -88,6 +96,8 @@ const App = () => {
   return (
     <div className="app">
       <h1>Pokémon List 📜</h1>
+
+      {/*Search Form*/}
       <form className="container-form" onSubmit={handleSubmit}>
         <input
           onInput={handleInput}
@@ -106,7 +116,9 @@ const App = () => {
       </form>
 
       <div className="pokemon-container">
-        {pokemonId ? (
+        {pokemonId /*If not null*/ ? (
+
+          // Get one pokemon after search by Id
           <div>
             <div className="container-back">
               <button className="btn-back" onClick={() => window.location.reload()}> 👈 Back up</button>
@@ -131,6 +143,8 @@ const App = () => {
             </div>
           </div>
         ) : (
+
+          // Get All pokemons 
           pokemons.map((pokemon) => (
             <div className="card" key={pokemon.id}>
               <img className="pokemon-image" src={pokemon.picture} alt={pokemon.name} />
