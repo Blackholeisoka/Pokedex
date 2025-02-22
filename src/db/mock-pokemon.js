@@ -109,4 +109,7 @@ const pokemons = [
     }
 ];
 
+/*
+    You can add more here...
+*/
 module.exports = pokemons
